@@ -1,0 +1,64 @@
+{
+  "v2ex-share": {
+    "name": "V2EX",
+    "column": "tech",
+    "home": "https://v2ex.com/",
+    "color": "slate",
+    "interval": 600000,
+    "title": "程序员社区分享"
+  },
+  "coolapk": {
+    "title": "科技热点",
+    "name": "酷安",
+    "type": "hottest",
+    "column": "tech",
+    "home": "https://coolapk.com",
+    "color": "green",
+    "interval": 600000
+  },
+  "36kr-quick": {
+    "name": "36氪",
+    "type": "realtime",
+    "column": "tech",
+    "home": "https://36kr.com",
+    "color": "blue",
+    "interval": 600000,
+    "title": "科技创业快讯"
+  },
+  "ithome": {
+    "name": "IT之家",
+    "type": "realtime",
+    "column": "tech",
+    "home": "https://www.ithome.com",
+    "color": "red",
+    "interval": 600000,
+    "title": "科技资讯"
+  },
+  "pcbeta-windows11": {
+    "name": "远景论坛",
+    "type": "realtime",
+    "column": "tech",
+    "home": "https://bbs.pcbeta.com",
+    "color": "blue",
+    "interval": 300000,
+    "title": "Windows 技术"
+  },
+  "wallstreetcn-quick": {
+    "name": "华尔街见闻",
+    "type": "realtime",
+    "column": "finance",
+    "home": "https://wallstreetcn.com/",
+    "color": "blue",
+    "interval": 300000,
+    "title": "科技金融快讯"
+  },
+  "zhihu": {
+    "name": "知乎",
+    "type": "hottest",
+    "column": "tech",
+    "home": "https://www.zhihu.com",
+    "color": "blue",
+    "interval": 600000,
+    "title": "科技热门话题"
+  }
+} 

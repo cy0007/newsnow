@@ -1,0 +1,304 @@
+{
+  "comment": "陈同学专属信息源配置 - AI/科技/财经/军事/电影五大领域",
+  
+  "ai_tech_sources": {
+    "v2ex-share": {
+      "name": "V2EX",
+      "column": "tech",
+      "home": "https://v2ex.com/",
+      "color": "slate",
+      "interval": 600000,
+      "title": "程序员社区分享"
+    },
+    "ithome": {
+      "name": "IT之家", 
+      "type": "realtime",
+      "column": "tech",
+      "home": "https://www.ithome.com",
+      "color": "red",
+      "interval": 600000,
+      "title": "科技资讯"
+    },
+    "36kr-quick": {
+      "name": "36氪",
+      "type": "realtime", 
+      "column": "tech",
+      "home": "https://36kr.com",
+      "color": "blue",
+      "interval": 600000,
+      "title": "科技创业快讯"
+    },
+    "coolapk": {
+      "name": "酷安",
+      "type": "hottest",
+      "column": "tech", 
+      "home": "https://coolapk.com",
+      "color": "green",
+      "interval": 600000,
+      "title": "科技热点"
+    },
+    "bilibili-tech": {
+      "name": "B站科技区",
+      "column": "tech",
+      "home": "https://www.bilibili.com",
+      "color": "pink", 
+      "interval": 600000,
+      "title": "科技热门视频"
+    },
+    "juejin": {
+      "name": "掘金",
+      "column": "tech",
+      "home": "https://juejin.cn", 
+      "color": "blue",
+      "interval": 1800000,
+      "title": "技术社区"
+    },
+    "sspai": {
+      "name": "少数派",
+      "column": "tech",
+      "home": "https://sspai.com",
+      "color": "red", 
+      "interval": 1800000,
+      "title": "科技应用"
+    },
+    "jiqizhixin": {
+      "name": "机器之心",
+      "column": "tech",
+      "home": "https://www.jiqizhixin.com",
+      "color": "blue",
+      "interval": 1800000,
+      "title": "AI专业媒体",
+      "new": true
+    },
+    "leiphone": {
+      "name": "雷锋网",
+      "column": "tech", 
+      "home": "https://www.leiphone.com",
+      "color": "green",
+      "interval": 1800000,
+      "title": "AI科技资讯",
+      "new": true
+    }
+  },
+
+  "finance_sources": {
+    "wallstreetcn-quick": {
+      "name": "华尔街见闻",
+      "type": "realtime",
+      "column": "finance",
+      "home": "https://wallstreetcn.com/",
+      "color": "blue", 
+      "interval": 300000,
+      "title": "金融快讯"
+    },
+    "xueqiu": {
+      "name": "雪球",
+      "column": "finance",
+      "home": "https://xueqiu.com",
+      "color": "blue",
+      "interval": 600000,
+      "title": "股市讨论"
+    },
+    "jin10": {
+      "name": "金十数据",
+      "type": "realtime",
+      "column": "finance", 
+      "home": "https://www.jin10.com",
+      "color": "yellow",
+      "interval": 300000,
+      "title": "财经快讯"
+    },
+    "cls": {
+      "name": "财联社",
+      "type": "realtime",
+      "column": "finance",
+      "home": "https://www.cls.cn",
+      "color": "red",
+      "interval": 300000,
+      "title": "财经资讯"
+    },
+    "gelonghui": {
+      "name": "格隆汇", 
+      "column": "finance",
+      "home": "https://www.gelonghui.com",
+      "color": "orange",
+      "interval": 600000,
+      "title": "港股资讯"
+    }
+  },
+
+  "military_sources": {
+    "81cn": {
+      "name": "中国军网",
+      "column": "military",
+      "home": "http://www.81.cn",
+      "color": "green", 
+      "interval": 1800000,
+      "title": "军事资讯",
+      "new": true
+    },
+    "mod_gov": {
+      "name": "国防部",
+      "column": "military",
+      "home": "http://www.mod.gov.cn",
+      "color": "red",
+      "interval": 3600000,
+      "title": "国防部新闻",
+      "new": true
+    },
+    "globaltimes_military": {
+      "name": "环球时报军事",
+      "column": "military", 
+      "home": "https://mil.huanqiu.com",
+      "color": "red",
+      "interval": 1800000,
+      "title": "军事观察",
+      "new": true
+    },
+    "xinhua_military": {
+      "name": "新华军事",
+      "column": "military",
+      "home": "http://www.xinhuanet.com/mil",
+      "color": "blue",
+      "interval": 1800000, 
+      "title": "军事新闻",
+      "new": true
+    },
+    "ifeng_military": {
+      "name": "凤凰军事",
+      "column": "military",
+      "home": "http://news.ifeng.com/mil",
+      "color": "orange",
+      "interval": 1800000,
+      "title": "军事评论",
+      "new": true
+    }
+  },
+
+  "entertainment_sources": {
+    "douban_movie": {
+      "name": "豆瓣电影",
+      "column": "entertainment",
+      "home": "https://movie.douban.com", 
+      "color": "green",
+      "interval": 1800000,
+      "title": "电影资讯",
+      "new": true
+    },
+    "mtime": {
+      "name": "时光网",
+      "column": "entertainment",
+      "home": "http://www.mtime.com",
+      "color": "orange",
+      "interval": 1800000,
+      "title": "影视资讯", 
+      "new": true
+    },
+    "1905": {
+      "name": "1905电影网",
+      "column": "entertainment", 
+      "home": "http://www.1905.com",
+      "color": "red",
+      "interval": 1800000,
+      "title": "电影新闻",
+      "new": true
+    },
+    "bilibili-movie": {
+      "name": "B站影视区",
+      "column": "entertainment",
+      "home": "https://www.bilibili.com",
+      "color": "pink",
+      "interval": 600000,
+      "title": "影视热门",
+      "new": true
+    },
+    "weibo_movie": {
+      "name": "微博电影",
+      "column": "entertainment",
+      "home": "https://weibo.com",
+      "color": "red", 
+      "interval": 600000,
+      "title": "电影话题",
+      "new": true
+    }
+  },
+
+  "platform_extensions": {
+    "douyin_tech": {
+      "name": "抖音科技",
+      "column": "tech",
+      "home": "https://www.douyin.com",
+      "color": "gray",
+      "interval": 600000,
+      "title": "科技热门话题",
+      "new": true
+    },
+    "douyin_finance": {
+      "name": "抖音财经",
+      "column": "finance", 
+      "home": "https://www.douyin.com",
+      "color": "gray",
+      "interval": 600000,
+      "title": "财经热门话题",
+      "new": true
+    },
+    "toutiao_military": {
+      "name": "头条军事",
+      "column": "military",
+      "home": "https://www.toutiao.com",
+      "color": "red",
+      "interval": 600000,
+      "title": "军事热点",
+      "new": true
+    },
+    "xiaohongshu_tech": {
+      "name": "小红书科技",
+      "column": "tech",
+      "home": "https://www.xiaohongshu.com", 
+      "color": "red",
+      "interval": 1800000,
+      "title": "科技数码分享",
+      "new": true,
+      "note": "需要技术开发"
+    }
+  },
+
+  "metadata_extensions": {
+    "new_columns": {
+      "military": {
+        "zh": "军事",
+        "icon": "⚔️"
+      },
+      "entertainment": {
+        "zh": "影视",
+        "icon": "🎬"
+      }
+    }
+  },
+
+  "implementation_priority": {
+    "phase_1_immediate": [
+      "jiqizhixin", "leiphone", "81cn", "mod_gov", "douban_movie", 
+      "mtime", "bilibili-movie", "globaltimes_military"
+    ],
+    "phase_2_development": [
+      "douyin_tech", "douyin_finance", "toutiao_military", 
+      "xiaohongshu_tech", "youtube_channels"
+    ],
+    "phase_3_advanced": [
+      "twitter_tech_influencers", "reddit_tech", "github_trending_ai"
+    ]
+  },
+
+  "statistics": {
+    "total_new_sources": 25,
+    "by_category": {
+      "tech": 12,
+      "finance": 5, 
+      "military": 5,
+      "entertainment": 5
+    },
+    "immediate_implementation": 15,
+    "requires_development": 10
+  }
+} 

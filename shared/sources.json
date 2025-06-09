@@ -508,5 +508,69 @@
     "color": "green",
     "interval": 1800000,
     "title": "最热"
+  },
+  "jiqizhixin": {
+    "name": "机器之心",
+    "column": "tech",
+    "home": "https://www.jiqizhixin.com",
+    "color": "blue",
+    "interval": 1800000,
+    "title": "AI专业媒体"
+  },
+  "leiphone": {
+    "name": "雷锋网",
+    "column": "tech",
+    "home": "https://www.leiphone.com",
+    "color": "green",
+    "interval": 1800000,
+    "title": "AI科技资讯"
+  },
+  "81cn": {
+    "name": "中国军网",
+    "column": "military",
+    "home": "http://www.81.cn",
+    "color": "green",
+    "interval": 1800000,
+    "title": "军事资讯"
+  },
+  "mod-gov": {
+    "name": "国防部",
+    "column": "military",
+    "home": "http://www.mod.gov.cn",
+    "color": "red",
+    "interval": 3600000,
+    "title": "国防部新闻"
+  },
+  "globaltimes-military": {
+    "name": "环球时报军事",
+    "column": "military",
+    "home": "https://mil.huanqiu.com",
+    "color": "red",
+    "interval": 1800000,
+    "title": "军事观察"
+  },
+  "douban-movie": {
+    "name": "豆瓣电影",
+    "column": "entertainment",
+    "home": "https://movie.douban.com",
+    "color": "green",
+    "interval": 1800000,
+    "title": "电影资讯"
+  },
+  "mtime": {
+    "name": "时光网",
+    "column": "entertainment",
+    "home": "http://www.mtime.com",
+    "color": "orange",
+    "interval": 1800000,
+    "title": "影视资讯"
+  },
+  "bilibili-movie": {
+    "name": "B站影视区",
+    "column": "entertainment",
+    "home": "https://www.bilibili.com",
+    "color": "pink",
+    "interval": 600000,
+    "title": "影视热门"
   }
 }
