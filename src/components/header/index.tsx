@@ -45,7 +45,7 @@ export function Header() {
       <span className="flex justify-self-start">
         <Link to="/" className="flex gap-2 items-center">
           <span className="text-2xl font-brand line-height-none!">
-            <p>News</p>
+            <p>News by CY</p>
           </span>
         </Link>
       </span>

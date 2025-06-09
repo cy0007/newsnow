@@ -11,43 +11,121 @@ interface TranslatedNewsItemProps {
   isEnglishSource?: boolean
 }
 
-// 简单的翻译服务接口
+// 改进的翻译服务接口
 async function translateText(text: string): Promise<string> {
+  // 如果文本太短或者已经是中文，直接返回
+  if (text.length < 3 || /[\u4e00-\u9fa5]/.test(text)) {
+    return text
+  }
+  
   try {
-    // 使用 MyMemory 免费翻译API
-    const response = await fetch(
-      `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|zh`,
+    // 方案1: 使用 MyMemory API
+    console.log('尝试翻译:', text)
+    const myMemoryResponse = await fetch(
+      `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|zh-CN`,
       {
         method: 'GET',
         headers: {
-          'Content-Type': 'application/json',
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
         },
       }
     )
     
-    const data = await response.json()
-    
-    if (data.responseData?.translatedText) {
-      return data.responseData.translatedText
-    }
-    
-    // 备用方案：使用浏览器内置翻译（如果支持）
-    if ('translation' in navigator) {
-      // @ts-ignore - 这是实验性API
-      const translator = await navigator.translation?.createTranslator({
-        sourceLanguage: 'en',
-        targetLanguage: 'zh'
-      })
+    if (myMemoryResponse.ok) {
+      const data = await myMemoryResponse.json()
+      console.log('MyMemory 响应:', data)
       
-      if (translator) {
-        return await translator.translate(text)
+      if (data.responseData?.translatedText && data.responseData.translatedText !== text) {
+        const translated = data.responseData.translatedText
+        // 检查是否真的翻译了（不是简单返回原文）
+        if (translated.toLowerCase() !== text.toLowerCase()) {
+          console.log('翻译成功:', translated)
+          return translated
+        }
       }
     }
     
-    throw new Error('Translation failed')
+    // 方案2: 使用 LibreTranslate (备用)
+    try {
+      console.log('尝试备用翻译服务')
+      const libreResponse = await fetch('https://libretranslate.de/translate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          q: text,
+          source: 'en',
+          target: 'zh',
+          format: 'text'
+        })
+      })
+      
+      if (libreResponse.ok) {
+        const data = await libreResponse.json()
+        console.log('LibreTranslate 响应:', data)
+        if (data.translatedText && data.translatedText !== text) {
+          console.log('备用翻译成功:', data.translatedText)
+          return data.translatedText
+        }
+      }
+    } catch (libreError) {
+      console.warn('备用翻译服务失败:', libreError)
+    }
+    
+    // 方案3: 简单的词汇映射（基础翻译）
+    const basicTranslations = {
+      'Latest': '最新',
+      'New': '新',
+      'AI': '人工智能',
+      'breakthrough': '突破',
+      'language': '语言',
+      'model': '模型',
+      'models': '模型',
+      'OpenAI': 'OpenAI',
+      'Google': '谷歌',
+      'Microsoft': '微软',
+      'Apple': '苹果',
+      'Meta': 'Meta',
+      'Facebook': '脸书',
+      'Twitter': '推特',
+      'GitHub': 'GitHub',
+      'API': 'API',
+      'SDK': 'SDK',
+      'app': '应用',
+      'application': '应用程序',
+      'software': '软件',
+      'tool': '工具',
+      'framework': '框架',
+      'library': '库',
+      'database': '数据库',
+      'cloud': '云',
+      'security': '安全',
+      'privacy': '隐私',
+      'update': '更新',
+      'release': '发布',
+      'version': '版本',
+      'feature': '功能',
+      'bug': '错误',
+      'fix': '修复'
+    }
+    
+    // 尝试基础词汇替换
+    let basicTranslation = text
+    Object.entries(basicTranslations).forEach(([en, zh]) => {
+      const regex = new RegExp(`\\b${en}\\b`, 'gi')
+      basicTranslation = basicTranslation.replace(regex, zh)
+    })
+    
+    if (basicTranslation !== text) {
+      console.log('使用基础翻译:', basicTranslation)
+      return `${basicTranslation} (基础翻译)`
+    }
+    
+    throw new Error('所有翻译方案都失败了')
   } catch (error) {
-    console.warn('Translation failed:', error)
-    return text // 翻译失败时返回原文
+    console.error('翻译失败:', error)
+    return `${text} (翻译失败，显示原文)`
   }
 }
 
