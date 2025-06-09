@@ -5,6 +5,7 @@ import { useWindowSize } from "react-use"
 import { forwardRef, useImperativeHandle } from "react"
 import { OverlayScrollbar } from "../common/overlay-scrollbar"
 import { safeParseString } from "~/utils"
+import { TranslationToggle, isEnglishSource } from "../common/translation"
 
 export interface ItemsProps extends React.HTMLAttributes<HTMLDivElement> {
   id: SourceID
@@ -163,7 +164,7 @@ function NewsCard({ id, setHandleRef }: NewsCardProps) {
         defer
       >
         <div className={$("transition-opacity-500", isFetching && "op-20")}>
-          {!!data?.items?.length && (sources[id].type === "hottest" ? <NewsListHot items={data.items} /> : <NewsListTimeLine items={data.items} />)}
+          {!!data?.items?.length && (sources[id].type === "hottest" ? <NewsListHot items={data.items} sourceId={id} /> : <NewsListTimeLine items={data.items} sourceId={id} />)}
         </div>
       </OverlayScrollbar>
     </>
@@ -225,41 +226,51 @@ function NewsUpdatedTime({ date }: { date: string | number }) {
   const relativeTime = useRelativeTime(date)
   return <>{relativeTime}</>
 }
-function NewsListHot({ items }: { items: NewsItem[] }) {
+function NewsListHot({ items, sourceId }: { items: NewsItem[], sourceId: SourceID }) {
   const { width } = useWindowSize()
+  const isEnglish = isEnglishSource(sourceId)
+  
   return (
     <ol className="flex flex-col gap-2">
       {items?.map((item, i) => (
-        <a
-          href={width < 768 ? item.mobileUrl || item.url : item.url}
-          target="_blank"
-          key={item.id}
-          title={item.extra?.hover}
-          className={$(
-            "flex gap-2 items-center items-stretch relative cursor-pointer [&_*]:cursor-pointer transition-all",
-            "hover:bg-neutral-400/10 rounded-md pr-1 visited:(text-neutral-400)",
+        <div key={item.id} className="flex flex-col gap-1">
+          <a
+            href={width < 768 ? item.mobileUrl || item.url : item.url}
+            target="_blank"
+            title={item.extra?.hover}
+            className={$(
+              "flex gap-2 items-center items-stretch relative cursor-pointer [&_*]:cursor-pointer transition-all",
+              "hover:bg-neutral-400/10 rounded-md pr-1 visited:(text-neutral-400)",
+            )}
+          >
+            <span className={$("bg-neutral-400/10 min-w-6 flex justify-center items-center rounded-md text-sm")}>
+              {i + 1}
+            </span>
+            {!!item.extra?.diff && <DiffNumber diff={item.extra.diff} />}
+            <span className="self-start line-height-none">
+              <span className="mr-2 text-base">
+                {item.title}
+              </span>
+              <span className="text-xs text-neutral-400/80 truncate align-middle">
+                <ExtraInfo item={item} />
+              </span>
+            </span>
+          </a>
+          {isEnglish && (
+            <div className="ml-8">
+              <TranslationToggle text={item.title} className="text-xs" />
+            </div>
           )}
-        >
-          <span className={$("bg-neutral-400/10 min-w-6 flex justify-center items-center rounded-md text-sm")}>
-            {i + 1}
-          </span>
-          {!!item.extra?.diff && <DiffNumber diff={item.extra.diff} />}
-          <span className="self-start line-height-none">
-            <span className="mr-2 text-base">
-              {item.title}
-            </span>
-            <span className="text-xs text-neutral-400/80 truncate align-middle">
-              <ExtraInfo item={item} />
-            </span>
-          </span>
-        </a>
+        </div>
       ))}
     </ol>
   )
 }
 
-function NewsListTimeLine({ items }: { items: NewsItem[] }) {
+function NewsListTimeLine({ items, sourceId }: { items: NewsItem[], sourceId: SourceID }) {
   const { width } = useWindowSize()
+  const isEnglish = isEnglishSource(sourceId)
+  
   return (
     <ol className="border-s border-neutral-400/50 flex flex-col ml-1">
       {items?.map(item => (
@@ -285,6 +296,11 @@ function NewsListTimeLine({ items }: { items: NewsItem[] }) {
           >
             {item.title}
           </a>
+          {isEnglish && (
+            <div className="ml-2 mt-1">
+              <TranslationToggle text={item.title} className="text-xs" />
+            </div>
+          )}
         </li>
       ))}
     </ol>
